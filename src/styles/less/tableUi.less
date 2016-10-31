@@ -1,0 +1,101 @@
+.tableUi {
+  @tableUiBg:#eeeeee;
+  padding: 10px;
+  height: ~"calc(100vh - 100px)";
+  .header {
+    background: #000000;
+    color: #fff;
+    overflow: hidden;
+    .glyphicon{margin-right: 3px;}
+    .glyphicon:hover,.sortIcon:hover{cursor: pointer;}
+  }
+  .rowDiv {
+    white-space: nowrap;
+    display: inline-block;
+    &:nth-child(odd){
+      background:rgba(0,0,0,0.1);
+    }
+    &:hover{
+
+    }
+  }
+  .header{
+    font-weight: bold;
+    .rowDiv{
+      .colDiv{background: #000}
+  }
+  }
+  .bodyContent{
+    .colDiv{
+      height: 50px;
+    }
+  }
+  .colDiv {
+    width: 200px;
+    display: inline-block;
+    padding: 10px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    vertical-align: top;
+    .progress{margin: 0;}
+  }
+  .child{background: rgba(255,255,255,.7) !important;
+  &:last-child .colDiv{border-bottom: 1px #e1e1e1 solid;}}
+  .left {
+    border-right: 1px #fff solid;
+    background: @tableUiBg;
+    height: 100%;
+    .rowDiv{position: relative; width: 100%}
+    .colDiv {
+      width: 100%;
+      &:first-child{padding-left: 25px;}
+    }
+    .arrowCollapse{
+      position: absolute;
+      margin-top: 12px;
+      margin-left: 3px;
+      cursor: pointer;
+      color: #ff6600;
+      &+.colDiv {padding-left: 25px;}
+    }
+    .bodyContent{
+      height: ~"calc(100% - 71px)";
+      overflow: hidden;
+    }
+  }
+  .right {
+    height: 100%;
+    background: @tableUiBg;
+    .bindDiv{display: inline-block;}
+    .header{
+    .exp{background:#333333 !important;}
+    .colDiv{border-right: 1px rgba(255,255,255,0.20) solid}
+    }
+    .bodyContent{
+      height: ~"calc(100% - 50px)";
+      width: ~"calc(100% + 21px)" !important;
+      overflow-y: scroll;
+      overflow-x: auto;
+      .colDiv{border-right: 1px rgba(0,0,0,0.1) solid;}
+      .exp{background:rgba(255,255,255,0.4) !important;border-right: 1px rgba(0,0,0,0.05) solid;}
+      .rowDiv:hover {
+          background: rgba(0,0,0,0.2) !important;
+        }
+    }
+  }
+  .sortIcon{
+    background: url(images/sort-default.png);
+    background-size: contain;
+    width: 20px;
+    height:20px;
+    &.asc{
+      background: url(images/sortIcon.png);
+      background-size: contain;
+    }
+    &.desc{
+      background: url(images/sortIcon.png);
+      background-size: contain;
+      transform: rotate(180deg);
+    }
+  }
+}
